@@ -2,5 +2,7 @@
 venv/
 logs/
 temp/
+dist/
+build/
 icon.psd
 banner.psd

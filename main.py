@@ -53,12 +53,12 @@ def main() -> None:
     Main entry
     :return:
     """
-    # Parse arguments
-    args = parse_args()
-
     # Multiprocessing fix for Windows
     if sys.platform.startswith("win"):
         multiprocessing.freeze_support()
+
+    # Parse arguments
+    args = parse_args()
 
     # Initialize logging and start listener as process
     logging_handler = LoggingHandler.LoggingHandler()
