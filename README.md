@@ -18,6 +18,16 @@
 
 ----------
 
+[Jerobeam Fenderson - Shrooms](https://www.youtube.com/watch?v=19jv0HM92kw) through **NTSC-VHS-Renderer** *(NTSC, Interlaced, Brightness +100, Contrast +10, Bloom 80)*
+
+![](git_media/mushrooms.gif)
+
+Corpse Bride ending through **NTSC-VHS-Renderer** *(VHS, Interlaced, Brightness +20, Contrast +10, Bloom 45)*
+
+![](git_media/corpse_bride.gif)
+
+----------
+
 ## 📙 Dependencies
 
 - **NTSC-CRT**: https://github.com/LMP88959/NTSC-CRT
@@ -90,12 +100,6 @@
 ## ✨ Contribution
 
 - Anyone can contribute! Just create a pull request
-
-----------
-
-[Jerobeam Fenderson - Shrooms](https://www.youtube.com/watch?v=19jv0HM92kw) through NTSC-VHS-Renderer
-
-![](git_media/mushrooms.gif)
 
 ----------
 
