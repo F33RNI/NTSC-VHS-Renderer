@@ -327,9 +327,12 @@ class Window(QMainWindow):
 
         # Play file again
         elif self.current_file:
+            render_from_frame = self.frames_processor.current_frame_absolute.value
+            if render_from_frame >= self.frames_processor.frames_max.value:
+                render_from_frame = 1
             self.open_file(self.current_file,
                            render_to_file=False,
-                           render_from_frame=self.frames_processor.current_frame_absolute.value)
+                           render_from_frame=render_from_frame)
 
     def timeline_callback(self) -> None:
         """
