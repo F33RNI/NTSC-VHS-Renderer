@@ -396,16 +396,18 @@ class FramesProcessor:
                         time_current = frames_to_time_str(max(frame_to - (frame_from + current_frame - 1), 0),
                                                           frame_to, video_parameters["fps"])
                         time_total = frames_to_time_str(0, frame_to, video_parameters["fps"])
-                        percentage = ((frame_from + current_frame - 1) / frame_to) * 100.
+                        percentage_absolute = ((frame_from + current_frame - 1) / frame_to) * 100.
+                        percentage_relative = (current_frame / (frame_to - frame_from + 1)) * 100.
                         self.playback_info.value = "Frame {}/{} ({}/{})" \
                                                    " ({:04.1f}%) Rendering FPS: {}".format(frame_from +
                                                                                            current_frame - 1,
                                                                                            frame_to,
                                                                                            time_current,
                                                                                            time_total,
-                                                                                           round(percentage, 1),
+                                                                                           round(percentage_absolute,
+                                                                                                 1),
                                                                                            round(fps_filtered, 2))
-                        self.rendering_progress.value = int(percentage)
+                        self.rendering_progress.value = int(percentage_relative)
                         self.current_frame_absolute.value = frame_from + current_frame - 1
 
                         # Put to preview
