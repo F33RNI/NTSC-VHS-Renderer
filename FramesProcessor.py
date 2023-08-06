@@ -542,6 +542,7 @@ class FramesProcessor:
         self.rendering_single_frame_forward_request.value = False
         self.rendering_stop_request.value = False
         self.rendering_process_active.value = False
+        self.rendering_process_paused.value = False
         self.rendering_progress.value = 100
 
         # Callback

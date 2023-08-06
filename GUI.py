@@ -692,7 +692,8 @@ class Window(QMainWindow):
         Pauses rendering and waits until rendering is paused
         :return:
         """
-        if self.frames_processor.rendering_process_active.value:
+        if self.frames_processor.rendering_process_active.value \
+                and not self.frames_processor.rendering_process_paused.value:
             self.frames_processor.rendering_pause_request.value = True
             while self.frames_processor.rendering_pause_request.value:
                 time.sleep(0.01)
@@ -703,7 +704,8 @@ class Window(QMainWindow):
         Resumes rendering and waits until rendering is resumed
         :return:
         """
-        if self.frames_processor.rendering_process_active.value:
+        if self.frames_processor.rendering_process_active.value \
+                and self.frames_processor.rendering_process_paused.value:
             self.frames_processor.rendering_resume_request.value = True
             while self.frames_processor.rendering_resume_request.value:
                 time.sleep(0.01)
