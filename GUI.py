@@ -303,8 +303,8 @@ class Window(QMainWindow):
         # Play file again from previous frame and pause it
         if self.current_file:
             self.open_file(self.current_file, render_to_file=False,
-                           render_from_frame=min(max(self.frames_processor.current_frame_absolute.value - 1, 1),
-                                                 self.frames_processor.frames_max.value - 1))
+                           render_from_frame=max(min(max(self.frames_processor.current_frame_absolute.value - 1, 1),
+                                                 self.frames_processor.frames_max.value - 1), 1))
             self.pause_rendering()
 
     def control_play_pause(self) -> None:
