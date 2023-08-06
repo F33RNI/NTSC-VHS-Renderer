@@ -1,0 +1,5 @@
+PyQt5>=5.15.9
+psutil>=5.9.5
+numpy>=1.25.2
+Pillow>=10.0.0
+pygame>=2.5.0

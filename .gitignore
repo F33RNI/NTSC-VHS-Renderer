@@ -1,2 +1,5 @@
 .idea/
 venv/
+logs/
+temp/
+icon.psd
