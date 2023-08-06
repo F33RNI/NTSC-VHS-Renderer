@@ -94,6 +94,7 @@ Corpse Bride ending through **NTSC-VHS-Renderer** *(VHS, Interlaced, Brightness 
 - Test properly
 - Build for linux
 - Make it faster
+- Add rolling shutter effect
 
 ----------
 
