@@ -93,4 +93,10 @@
 
 ----------
 
+[Jerobeam Fenderson - Shrooms](https://www.youtube.com/watch?v=19jv0HM92kw) through NTSC-VHS-Renderer
+
+![](git_media/mushrooms.gif)
+
+----------
+
 ### 🚧 P.S. This project is under development!
