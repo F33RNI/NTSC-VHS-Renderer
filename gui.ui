@@ -255,8 +255,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>440</width>
-             <height>639</height>
+             <width>786</width>
+             <height>681</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout">
@@ -838,9 +838,9 @@
  <resources/>
  <connections/>
  <buttongroups>
+  <buttongroup name="buttonGroup"/>
+  <buttongroup name="buttonGroup_3"/>
   <buttongroup name="buttonGroup_2"/>
   <buttongroup name="buttonGroup_4"/>
-  <buttongroup name="buttonGroup_3"/>
-  <buttongroup name="buttonGroup"/>
  </buttongroups>
 </ui>

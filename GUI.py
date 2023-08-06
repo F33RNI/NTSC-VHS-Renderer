@@ -448,6 +448,8 @@ class Window(QMainWindow):
             self.btn_play_pause.setEnabled(True)
             self.btn_next.setEnabled(True)
             self.sl_timeline.setEnabled(True)
+            self.tab_2.setEnabled(True)
+            self.actionOpen.setEnabled(True)
 
         # Show successful dialog
         if successful and self.render_to_file:
@@ -586,6 +588,8 @@ class Window(QMainWindow):
                     self.btn_play_pause.setEnabled(not render_to_file)
                     self.btn_next.setEnabled(not render_to_file)
                     self.sl_timeline.setEnabled(not render_to_file)
+                    self.tab_2.setEnabled(not render_to_file)
+                    self.actionOpen.setEnabled(not render_to_file)
 
                 else:
                     self.error_message_box("Wrong dimensions of file {}".format(filename),
