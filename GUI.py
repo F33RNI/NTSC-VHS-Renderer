@@ -35,8 +35,8 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QFileDialog,
 from FramesProcessor import FramesProcessor
 from JSONReaderWriter import save_json
 
-# GUI stylesheet
-STYLESHEET_FILE = "stylesheet.qss"
+# GUI stylesheets
+STYLESHEET_FILES = [os.path.join("stylesheets", "light.qss"), os.path.join("stylesheets", "dark.qss")]
 
 # Video and image formats supported by ffmpeg (I hope so)
 MEDIA_FILES = ["*.avi", "*.mkv", "*.mpg", "*.mpeg", "*.wmv", "*.flv", "*.webm", "*.m4v", "*.3gp", "*.mp4", "*.mov",
@@ -86,9 +86,6 @@ class Window(QMainWindow):
         # Load GUI from file
         uic.loadUi("gui.ui", self)
 
-        with open(STYLESHEET_FILE, "r") as stylesheet_file:
-            self.setStyleSheet(stylesheet_file.read())
-
         # Set window title
         self.setWindowTitle("NTSC-VHS-Renderer " + version)
 
@@ -121,6 +118,10 @@ class Window(QMainWindow):
         self.sl_timeline.sliderPressed.connect(self.pause_rendering)
 
         # Set gui elements from config
+        with open(STYLESHEET_FILES[self.config["stylesheet"]], "r") as stylesheet_file:
+            self.setStyleSheet(stylesheet_file.read())
+        self.rb_theme_light.setChecked(self.config["stylesheet"] == 0)
+        self.rb_theme_dark.setChecked(self.config["stylesheet"] == 1)
         self.rb_preview_original.setChecked(self.config["preview_mode"] == 0)
         self.rb_preview_processed.setChecked(self.config["preview_mode"] == 1)
         self.rb_system_ntsc.setChecked(self.config["system"] == 0)
@@ -155,6 +156,8 @@ class Window(QMainWindow):
         self.cb_bitrate_same.setChecked(self.config["out_bitrate_equal_to_input"])
 
         # Connect config updater
+        self.rb_theme_light.clicked.connect(lambda _: self.update_config(False))
+        self.rb_theme_dark.clicked.connect(lambda _: self.update_config(False))
         self.rb_preview_original.clicked.connect(lambda _: self.update_config(False))
         self.rb_preview_processed.clicked.connect(lambda _: self.update_config(False))
 
@@ -218,6 +221,7 @@ class Window(QMainWindow):
             self.stop_rendering()
 
         # Read data from elements
+        self.config["stylesheet"] = 0 if self.rb_theme_light.isChecked() else 1
         self.config["preview_mode"] = 0 if self.rb_preview_original.isChecked() else 1
         self.config["system"] = 0 if self.rb_system_ntsc.isChecked() else 1
         self.config["monochrome"] = self.cb_monochrome.isChecked()
@@ -247,6 +251,10 @@ class Window(QMainWindow):
                   else 2)
         self.config["out_bitrate"] = int(self.sb_bitrate.value())
         self.config["out_bitrate_equal_to_input"] = self.cb_bitrate_same.isChecked()
+
+        # Update stylesheet
+        with open(STYLESHEET_FILES[self.config["stylesheet"]], "r") as stylesheet_file:
+            self.setStyleSheet(stylesheet_file.read())
 
         # Enable / disable some elements
         self.cb_mess_bottom_line.setEnabled(self.rb_system_vhs.isChecked())
@@ -497,6 +505,7 @@ class Window(QMainWindow):
                           "\nNTSC-CRT library by LMP88959 (aka EMMIR)"
                           "\nFFmpeg library by www.ffmpeg.org"
                           "\nBloomEffect by Yoann Berenguer"
+                          "\nIdea and help with theme switch by Keepalove (Azarell) (Sprav04ka)"
                           .format(self.version))
         about_box.exec_()
 

@@ -30,7 +30,7 @@ import LoggingHandler
 from JSONReaderWriter import load_json
 
 # NTSC-VHS-Renderer version
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 
 # Default config location
 CONFIG_FILE = "config.json"

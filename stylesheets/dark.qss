@@ -1,29 +1,36 @@
 * {
     font-family: Consolas;
+    font-size: 14px;
 }
 
 /*-----QWidget-----*/
 QWidget
 {
-	background-color: #eee;
+	background-color: #333;
 	color: #ff77a8;
 	border: none;
-	selection-color: #eee;
+	selection-color: #333;
     selection-background-color: #ff77a8;
+}
+
+#lb_preview
+{
+    border: 1px solid #555;
+    font-size: 24px;
 }
 
 /*-----QGroupBox-----*/
 QGroupBox
 {
-    border-top: 1px solid #b0b2b8;
-    border-bottom: 1px solid #b0b2b8;
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #555;
 }
 
 /*-----QScrollArea-----*/
 QScrollArea
 {
-    border-top: 1px solid #b0b2b8;
-    border-bottom: 1px solid #b0b2b8;
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #555;
     margin: 0px;
     padding: 0px;
 }
@@ -40,7 +47,7 @@ QTabBar::tab
     margin-bottom: 0px;
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
-    color: #fff;
+    color: #000;
     padding: 5px;
     background-color: #ff77a8;
 }
@@ -49,7 +56,7 @@ QTabBar::tab:disabled
 {
     margin-top: 8px;
     margin-bottom: 0px;
-    background-color: #d4b6c1;
+    background-color: #a18991;
 }
 
 QTabBar::tab:selected
@@ -63,7 +70,7 @@ QTabBar::tab:selected:disabled
 {
     margin-top: 5px;
     margin-bottom: 0px;
-    background-color: #d4b6c1;
+    background-color: #a18991;
 }
 
 
@@ -71,7 +78,7 @@ QTabBar::tab:selected:disabled
 QPushButton
 {
 	background-color: #ff77a8;
-	color: #fff;
+	color: #000;
 	font-size: 13px;
 	border-radius: 0px;
 	padding: 10px;
@@ -80,7 +87,7 @@ QPushButton
 
 QPushButton::disabled
 {
-	background-color: #d4b6c1;
+	background-color: #a18991;
 }
 
 QPushButton::hover
@@ -110,18 +117,18 @@ QSlider::handle:horizontal
 
 QSlider::handle:horizontal:disabled
 {
-    background: #d4b6c1;
+    background: #a18991;
 }
 
 QSlider::add-page:qlineargradient
 {
-    background: #eee;
-    border: 1px solid #b0b2b8;
+    background: #333;
+    border: 1px solid #555;
 }
 
 QSlider::sub-page:qlineargradient
 {
-    background: #d4b6c1;
+    background: #a18991;
 }
 
 
@@ -129,7 +136,7 @@ QSlider::sub-page:qlineargradient
 QMenuBar
 {
     color: #ff77a8;
-    border-bottom: 1px solid #b0b2b8;
+    border-bottom: 1px solid #555;
     font-weight: bold;
 }
 
@@ -143,12 +150,12 @@ QMenuBar::item:disabled
 {
     spacing: 3px;
     padding: 5px;
-    color: #d4b6c1;
+    color: #a18991;
 }
 
 QMenuBar::item:selected
 {
-    color: #fff;
+    color: #000;
     background-color: #ff77a8;
 }
 
@@ -176,11 +183,11 @@ QProgressBar::chunk:disabled
 /*-----QSpinBox-----*/
 QSpinBox
 {
-    border: 1px solid #b0b2b8;
+    border: 1px solid #555;
 }
 QSpinBox:disabled
 {
-   color: #d4b6c1;
+   color: #a18991;
 }
 
 
@@ -199,12 +206,12 @@ QSpinBox::up-button
 }
 QSpinBox::down-button:disabled
 {
-    background-color: #d4b6c1;
+    background-color: #a18991;
 }
 
 QSpinBox::up-button:disabled
 {
-    background-color: #d4b6c1;
+    background-color: #a18991;
 }
 
 /*-----QCheckBox-----*/
@@ -216,7 +223,7 @@ QCheckBox
 
 QCheckBox::indicator
 {
-    border: 1px solid #b0b2b8;
+    border: 1px solid #555;
     width: 12px;
     height: 12px;
 }
@@ -236,14 +243,14 @@ QCheckBox::indicator:unchecked:hover
 
 QCheckBox::indicator:checked:disabled
 {
-    background-color: #d4b6c1;
-    border: 1px solid #d4b6c1;
+    background-color: #a18991;
+    border: 1px solid #a18991;
 }
 
 QCheckBox::indicator:unchecked:disabled
 {
     background-color: transparent;
-    border: 1px solid #d4b6c1;
+    border: 1px solid #a18991;
 }
 
 /*-----QRadioButton-----*/
@@ -257,7 +264,7 @@ QRadioButton
 
 QRadioButton::indicator
 {
-    border: 1px solid #b0b2b8;
+    border: 1px solid #555;
     width: 12px;
     height: 12px;
 }
@@ -277,14 +284,14 @@ QRadioButton::indicator:unchecked:hover
 
 QRadioButton::indicator:checked:disabled
 {
-    background-color: #d4b6c1;
-    border: 1px solid #d4b6c1;
+    background-color: #a18991;
+    border: 1px solid #a18991;
 }
 
 QRadioButton::indicator:unchecked:disabled
 {
     background-color: transparent;
-    border: 1px solid #d4b6c1;
+    border: 1px solid #a18991;
 }
 
 /*-----QScrollBar-----*/
@@ -308,7 +315,7 @@ QScrollBar::handle:horizontal
 
 QScrollBar::handle:horizontal:disabled
 {
-    background-color: #d4b6c1;
+    background-color: #a18991;
 }
 
 
@@ -342,7 +349,7 @@ QScrollBar::handle:vertical
 
 QScrollBar::handle:vertical:disabled
 {
-    background-color: #d4b6c1;
+    background-color: #a18991;
 }
 
 
@@ -354,4 +361,10 @@ QScrollBar::sub-page:vertical
     height: 0px;
     background-color: transparent;
 
+}
+
+/*-----QStatusBar-----*/
+QStatusBar
+{
+    font-size: 12px;
 }
