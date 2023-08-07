@@ -68,6 +68,7 @@ class Window(QMainWindow):
     rendering_done_signal = QtCore.pyqtSignal(int)  # QtCore.Signal(int)
     rendering_progress_set_value_signal = QtCore.pyqtSignal(int)  # QtCore.Signal(int)
     set_timeline_frame_signal = QtCore.pyqtSignal()  # QtCore.Signal()
+    lb_progress_set_text_signal = QtCore.pyqtSignal(str)  # QtCore.Signal(str)
 
     def __init__(self, config: dict, config_file: str, version: str, frames_processor: FramesProcessor,
                  statusbar_queue: multiprocessing.Queue) -> None:
@@ -101,6 +102,7 @@ class Window(QMainWindow):
         self.lb_preview_set_pixmap_signal.connect(self.lb_preview.setPixmap)
         self.rendering_done_signal.connect(self.rendering_done)
         self.set_timeline_frame_signal.connect(self.set_timeline_frame)
+        self.lb_progress_set_text_signal.connect(self.lb_progress.setText)
 
         # Connect menu buttons
         self.actionOpen.triggered.connect(self.open_file)
@@ -399,14 +401,10 @@ class Window(QMainWindow):
                                                                          Qt.KeepAspectRatio))
 
                     # Set video info
-                    self.lb_progress.setText(self.frames_processor.playback_info.value)
+                    self.lb_progress_set_text_signal.emit(self.frames_processor.playback_info.value)
 
                     # Set timeline progress
                     self.set_timeline_frame_signal.emit()
-
-                    # Enable preview selectors
-                    self.rb_preview_original.setEnabled(True)
-                    self.rb_preview_processed.setEnabled(True)
 
                     # Set QProgressDialog progress
                     try:
@@ -602,6 +600,8 @@ class Window(QMainWindow):
                     self.sl_timeline.setEnabled(not render_to_file)
                     self.tab_2.setEnabled(not render_to_file)
                     self.actionOpen.setEnabled(not render_to_file)
+                    self.rb_preview_original.setEnabled(True)
+                    self.rb_preview_processed.setEnabled(True)
 
                 else:
                     self.error_message_box("Wrong dimensions of file {}".format(filename),

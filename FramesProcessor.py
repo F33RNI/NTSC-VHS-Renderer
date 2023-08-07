@@ -294,12 +294,12 @@ class FramesProcessor:
 
                         # Apply brightness
                         if self.config["brightness_enabled"] and int(self.config["brightness"]) != 0:
-                            frame = ImageEnhance.Brightness(frame)\
+                            frame = ImageEnhance.Brightness(frame) \
                                 .enhance((int(self.config["brightness"]) / 100.) + 1.)
 
                         # Apply contrast
                         if self.config["contrast_enabled"] and int(self.config["contrast"]) != 0:
-                            frame = ImageEnhance.Contrast(frame)\
+                            frame = ImageEnhance.Contrast(frame) \
                                 .enhance((int(self.config["contrast"]) / 100.) + 1.)
 
                         # Apply sharpness
@@ -473,6 +473,10 @@ class FramesProcessor:
                             and extracted_frames_num < frame_to - frame_from + 1:
                         extract_frames_from = frame_from + extracted_frames_num
                         extract_frames_to = min(extract_frames_from + BUFFER_SIZE_FRAMES, frame_to)
+
+                        # Extract remaining frames regarding of buffer size
+                        if extract_frames_to + BUFFER_SIZE_FRAMES > frame_to:
+                            extract_frames_to = frame_to
 
                         # Pause NTSC process before extracting frames (to prevent out of sync)
                         if not ntsc_paused_too_fast:
@@ -701,11 +705,12 @@ class FramesProcessor:
             os.makedirs(frames_dir)
 
         # Log
-        logging.info("Extracting frames from {} to {}. Output files: {} to {}".format(frames_from,
-                                                                                      frames_to,
-                                                                                      name_from,
-                                                                                      name_from +
-                                                                                      frames_to - name_from))
+        logging.info("Extracting {} frames from {} to {}. Output files: {} to {}".format(frames_to - frames_from + 1,
+                                                                                         frames_from,
+                                                                                         frames_to,
+                                                                                         name_from,
+                                                                                         name_from +
+                                                                                         frames_to - name_from))
 
         # Extract frames
         command_ = [self.ffmpeg_path.value,
