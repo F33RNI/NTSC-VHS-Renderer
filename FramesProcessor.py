@@ -278,6 +278,8 @@ class FramesProcessor:
             ffmpeg_process = None
             current_frame = 1
             bloom_initialized = False
+            vignette = None
+            vignette_strength = 0
             while True:
                 # Set active flag
                 self.rendering_process_active.value = True
@@ -302,15 +304,38 @@ class FramesProcessor:
                             frame = ImageEnhance.Contrast(frame) \
                                 .enhance((int(self.config["contrast"]) / 100.) + 1.)
 
+                        # Apply saturation
+                        if self.config["saturation_enabled"] and int(self.config["saturation"]) != 0:
+                            frame = ImageEnhance.Color(frame) \
+                                .enhance((int(self.config["saturation"]) / 100.) + 1.)
+
                         # Apply sharpness
                         if self.config["sharpness_enabled"] and int(self.config["sharpness"]) != 0:
                             frame = ImageEnhance.Sharpness(frame) \
                                 .enhance((int(self.config["sharpness"]) / 100.) + 1.)
 
-                        # Apply saturation
-                        if self.config["saturation_enabled"] and int(self.config["saturation"]) != 0:
-                            frame = ImageEnhance.Color(frame) \
-                                .enhance((int(self.config["saturation"]) / 100.) + 1.)
+                        # Apply vignetting
+                        if self.config["vignette_enabled"] and int(self.config["vignette"]) != 0:
+                            vignette_strength_temp = int(self.config["vignette"]) / 100.
+                            if vignette is None or vignette_strength != vignette_strength_temp:
+                                logging.info("Initializing vignetting effect")
+                                vignette_strength = vignette_strength_temp
+                                width, height = frame.size
+                                x, y = np.meshgrid(np.arange(width), np.arange(height))
+                                center_x, center_y = width / 2, height / 2
+                                a = 1
+                                b = 1
+                                if width > height:
+                                    b = height / width
+                                elif height > width:
+                                    a = width / height
+                                distance = np.sqrt(((x - center_x) / a) ** 2 + ((y - center_y) / b) ** 2)
+                                max_distance = np.sqrt(center_x ** 2 + center_y ** 2)
+                                normalized_distance = distance / max_distance
+                                vignette = 1.0 - vignette_strength * (normalized_distance ** 2)
+                                vignette = np.clip(vignette, 0, 1)
+                                vignette = np.reshape(vignette, vignette.shape + (1,))
+                            frame = Image.fromarray((vignette * np.asarray(frame, dtype=np.uint8)).astype(np.uint8))
 
                         # Apply bloom
                         if self.config["bloom_enabled"] and int(self.config["bloom"]) != 0:

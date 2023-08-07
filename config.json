@@ -27,6 +27,8 @@
     "sharpness": 0,
     "saturation_enabled": false,
     "saturation": 0,
+    "vignette": 0,
+    "vignette_enabled": false,
     "bloom_enabled": false,
     "out_file_last": ""
 }
