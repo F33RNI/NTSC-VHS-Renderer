@@ -31,11 +31,11 @@
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
-        <string>Preview</string>
+        <string>PREVIEW</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <property name="leftMargin">
@@ -71,7 +71,7 @@
              <item>
               <widget class="QLabel" name="label">
                <property name="text">
-                <string>Preview mode:</string>
+                <string>PREVIEW MODE:</string>
                </property>
               </widget>
              </item>
@@ -81,7 +81,7 @@
                 <bool>false</bool>
                </property>
                <property name="text">
-                <string>Original</string>
+                <string>ORIGINAL</string>
                </property>
                <property name="checked">
                 <bool>false</bool>
@@ -97,7 +97,7 @@
                 <bool>false</bool>
                </property>
                <property name="text">
-                <string>Processed</string>
+                <string>PROCESSED</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
@@ -138,7 +138,7 @@
               <string notr="true"/>
              </property>
              <property name="text">
-              <string>Drop file here or click to open</string>
+              <string>DROP FILE HERE OR CLICK TO OPEN</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -175,7 +175,7 @@
                 </sizepolicy>
                </property>
                <property name="text">
-                <string>Play</string>
+                <string>PLAY</string>
                </property>
               </widget>
              </item>
@@ -213,7 +213,7 @@
            <item>
             <widget class="QLabel" name="lb_progress">
              <property name="text">
-              <string>Frame 0/0 (00:00:00.000/00:00:00.000) (00.0%) Rendering FPS: 0</string>
+              <string>FRAME 0/0 (00:00:00.000/00:00:00.000) (00.0%) RENDERING FPS: 0</string>
              </property>
             </widget>
            </item>
@@ -224,7 +224,7 @@
       </widget>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
-        <string>Render</string>
+        <string>RENDER</string>
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_6">
         <property name="leftMargin">
@@ -277,7 +277,7 @@
                  <item>
                   <widget class="QLabel" name="label_2">
                    <property name="text">
-                    <string>System:</string>
+                    <string>SYSTEM:</string>
                    </property>
                   </widget>
                  </item>
@@ -317,7 +317,7 @@
                     <enum>Qt::LeftToRight</enum>
                    </property>
                    <property name="text">
-                    <string>Monochrome</string>
+                    <string>MONOCHROME</string>
                    </property>
                   </widget>
                  </item>
@@ -328,7 +328,7 @@
                  <item>
                   <widget class="QLabel" name="label_3">
                    <property name="text">
-                    <string>Noise:</string>
+                    <string>NOISE:</string>
                    </property>
                   </widget>
                  </item>
@@ -346,14 +346,14 @@
                  <item>
                   <widget class="QLabel" name="label_5">
                    <property name="text">
-                    <string>Scan:</string>
+                    <string>SCAN:</string>
                    </property>
                   </widget>
                  </item>
                  <item>
                   <widget class="QRadioButton" name="rb_progressive">
                    <property name="text">
-                    <string>Progressive</string>
+                    <string>PROGRESSIVE</string>
                    </property>
                    <property name="checked">
                     <bool>true</bool>
@@ -366,7 +366,7 @@
                  <item>
                   <widget class="QRadioButton" name="rb_interlaced">
                    <property name="text">
-                    <string>Interlaced</string>
+                    <string>INTERLACED</string>
                    </property>
                    <attribute name="buttonGroup">
                     <string notr="true">buttonGroup_3</string>
@@ -380,7 +380,7 @@
                  <item>
                   <widget class="QCheckBox" name="cb_fill_between_scan_lines">
                    <property name="text">
-                    <string>Fill in gaps between scan lines</string>
+                    <string>FILL IN GAPS BETWEEN SCAN LINES</string>
                    </property>
                   </widget>
                  </item>
@@ -394,7 +394,7 @@
                     <bool>true</bool>
                    </property>
                    <property name="text">
-                    <string>Mess up the bottom of the frame (for VHS system only)</string>
+                    <string>MESS UP THE BOTTOM OF THE FRAME (FOR VHS SYSTEM ONLY)</string>
                    </property>
                   </widget>
                  </item>
@@ -405,7 +405,7 @@
                  <item>
                   <widget class="QLabel" name="label_9">
                    <property name="text">
-                    <string>Output resolution:</string>
+                    <string>OUTPUT RESOLUTION:</string>
                    </property>
                   </widget>
                  </item>
@@ -451,7 +451,7 @@
                  <item>
                   <widget class="QCheckBox" name="cb_size_input">
                    <property name="text">
-                    <string>Same as input file</string>
+                    <string>SAME AS INPUT FILE</string>
                    </property>
                   </widget>
                  </item>
@@ -490,7 +490,7 @@
                  <item>
                   <widget class="QCheckBox" name="cb_brightness_enabled">
                    <property name="text">
-                    <string>Brightness:</string>
+                    <string>BRIGHTNESS:</string>
                    </property>
                   </widget>
                  </item>
@@ -511,7 +511,7 @@
                  <item>
                   <widget class="QCheckBox" name="cb_contrast_enabled">
                    <property name="text">
-                    <string>Contrast:</string>
+                    <string>CONTRAST:</string>
                    </property>
                   </widget>
                  </item>
@@ -532,7 +532,7 @@
                  <item>
                   <widget class="QCheckBox" name="cb_saturation_enabled">
                    <property name="text">
-                    <string>Color (saturation):</string>
+                    <string>COLOR (SATURATION):</string>
                    </property>
                   </widget>
                  </item>
@@ -553,7 +553,7 @@
                  <item>
                   <widget class="QCheckBox" name="cb_sharpness_enabled">
                    <property name="text">
-                    <string>Sharpness:</string>
+                    <string>SHARPNESS:</string>
                    </property>
                   </widget>
                  </item>
@@ -574,7 +574,7 @@
                  <item>
                   <widget class="QCheckBox" name="cb_vignette_enabled">
                    <property name="text">
-                    <string>Vignetting:</string>
+                    <string>VIGNETTING:</string>
                    </property>
                   </widget>
                  </item>
@@ -592,7 +592,7 @@
                  <item>
                   <widget class="QCheckBox" name="cb_bloom_enabled">
                    <property name="text">
-                    <string>Bloom (glow) effect:</string>
+                    <string>BLOOM (GLOW) EFFECT:</string>
                    </property>
                   </widget>
                  </item>
@@ -638,7 +638,7 @@
                  <item>
                   <widget class="QLabel" name="label_4">
                    <property name="text">
-                    <string>Render from frame:</string>
+                    <string>RENDER FROM FRAME:</string>
                    </property>
                   </widget>
                  </item>
@@ -655,7 +655,7 @@
                  <item>
                   <widget class="QCheckBox" name="cb_from_start">
                    <property name="text">
-                    <string>File start</string>
+                    <string>FILE START</string>
                    </property>
                   </widget>
                  </item>
@@ -666,7 +666,7 @@
                  <item>
                   <widget class="QLabel" name="label_11">
                    <property name="text">
-                    <string>Render to frame:</string>
+                    <string>RENDER TO FRAME:</string>
                    </property>
                   </widget>
                  </item>
@@ -683,7 +683,7 @@
                  <item>
                   <widget class="QCheckBox" name="cb_to_end">
                    <property name="text">
-                    <string>File end</string>
+                    <string>FILE END</string>
                    </property>
                   </widget>
                  </item>
@@ -694,7 +694,7 @@
                  <item>
                   <widget class="QLabel" name="label_13">
                    <property name="text">
-                    <string>Output bitrate (Kbps):</string>
+                    <string>OUTPUT BITRATE (KBPS):</string>
                    </property>
                   </widget>
                  </item>
@@ -711,7 +711,7 @@
                  <item>
                   <widget class="QCheckBox" name="cb_bitrate_same">
                    <property name="text">
-                    <string>Same as input file</string>
+                    <string>SAME AS INPUT FILE</string>
                    </property>
                   </widget>
                  </item>
@@ -722,14 +722,14 @@
                  <item>
                   <widget class="QLabel" name="label_12">
                    <property name="text">
-                    <string>Output format:</string>
+                    <string>OUTPUT FORMAT:</string>
                    </property>
                   </widget>
                  </item>
                  <item>
                   <widget class="QRadioButton" name="rb_format_mp4">
                    <property name="text">
-                    <string>MP4, h264</string>
+                    <string>MP4, H264</string>
                    </property>
                    <property name="checked">
                     <bool>true</bool>
@@ -742,7 +742,7 @@
                  <item>
                   <widget class="QRadioButton" name="rb_format_mov">
                    <property name="text">
-                    <string>MOV, h264</string>
+                    <string>MOV, H264</string>
                    </property>
                    <attribute name="buttonGroup">
                     <string notr="true">buttonGroup_4</string>
@@ -752,7 +752,7 @@
                  <item>
                   <widget class="QRadioButton" name="rb_format_jpg">
                    <property name="text">
-                    <string>JPG, mjpeg</string>
+                    <string>JPG, MJPEG</string>
                    </property>
                    <attribute name="buttonGroup">
                     <string notr="true">buttonGroup_4</string>
@@ -783,7 +783,7 @@
                <bool>true</bool>
               </property>
               <property name="text">
-               <string>Render and Save as</string>
+               <string>RENDER AND SAVE AS</string>
               </property>
              </widget>
             </item>
@@ -812,14 +812,14 @@
       <item>
        <widget class="QLabel" name="label_6">
         <property name="text">
-         <string>GUI Theme:</string>
+         <string>GUI THEME:</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QRadioButton" name="rb_theme_light">
         <property name="text">
-         <string>Light</string>
+         <string>LIGHT</string>
         </property>
         <property name="checked">
          <bool>true</bool>
@@ -832,7 +832,7 @@
       <item>
        <widget class="QRadioButton" name="rb_theme_dark">
         <property name="text">
-         <string>Dark</string>
+         <string>DARK</string>
         </property>
         <attribute name="buttonGroup">
          <string notr="true">buttonGroup_5</string>
@@ -860,13 +860,13 @@
      <bool>true</bool>
     </property>
     <property name="title">
-     <string>File</string>
+     <string>FILE</string>
     </property>
     <addaction name="actionOpen"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
-     <string>Help</string>
+     <string>HELP</string>
     </property>
     <addaction name="actionGitHub_page"/>
     <addaction name="actionAbout_2"/>
@@ -877,7 +877,7 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionOpen">
    <property name="text">
-    <string>Open</string>
+    <string>OPEN</string>
    </property>
   </action>
   <action name="actionAbout">
@@ -887,7 +887,7 @@
   </action>
   <action name="actionAbout_2">
    <property name="text">
-    <string>About</string>
+    <string>ABOUT</string>
    </property>
    <property name="menuRole">
     <enum>QAction::AboutRole</enum>
@@ -895,17 +895,17 @@
   </action>
   <action name="actionGitHub_page">
    <property name="text">
-    <string>GitHub page</string>
+    <string>GITHUB PAGE</string>
    </property>
   </action>
  </widget>
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup_2"/>
   <buttongroup name="buttonGroup_3"/>
+  <buttongroup name="buttonGroup_4"/>
+  <buttongroup name="buttonGroup_2"/>
   <buttongroup name="buttonGroup"/>
   <buttongroup name="buttonGroup_5"/>
-  <buttongroup name="buttonGroup_4"/>
  </buttongroups>
 </ui>

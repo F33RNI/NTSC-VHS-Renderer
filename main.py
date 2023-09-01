@@ -30,7 +30,7 @@ import LoggingHandler
 from JSONReaderWriter import load_json
 
 # NTSC-VHS-Renderer version
-__version__ = "1.2.0"
+__version__ = "1.3.0"
 
 # Default config location
 CONFIG_FILE = "config.json"
@@ -74,6 +74,7 @@ def main() -> None:
     # Load config with multiprocessing support
     if not os.path.exists(args.config):
         logging.error("File {} doesn't exist!".format(args.config))
+        logging_handler.queue.put(None)
         return
     config = multiprocessing.Manager().dict(load_json(args.config))
 

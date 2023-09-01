@@ -12,7 +12,7 @@ PyInstaller.config.CONF['workpath'] = './build'
 COMPILE_NAME = 'NTSC-VHS-Renderer'
 
 # Version of main.py
-COMPILE_VERSION = '1.2.0'
+COMPILE_VERSION = '1.3.0'
 
 # Files and folders to include in final build directory (dist/COMPILE_NAME folder)
 INCLUDE_FILES = ['icon.png',
@@ -20,6 +20,7 @@ INCLUDE_FILES = ['icon.png',
                  'gui.ui',
                  'config.json',
                  'stylesheets',
+                 'fonts',
                  'bloom',
                  'ffmpeg-6.0-essentials_build',
                  'NTSC-CRT',

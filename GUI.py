@@ -93,6 +93,14 @@ class Window(QMainWindow):
         # Set icon
         self.setWindowIcon(QtGui.QIcon("icon.png"))
 
+        # Load font
+        font_path = os.path.join("fonts", "VCR_OSD_MONO_1.001.ttf")
+        if os.path.exists(font_path):
+            logging.info("Loading font from: {}".format(font_path))
+            font_id = QtGui.QFontDatabase.addApplicationFont(font_path)
+            font_name = QtGui.QFontDatabase.applicationFontFamilies(font_id)[0]
+            self.setFont(QtGui.QFont(font_name, 12 if sys.platform == "darwin" else 10, 300))
+
         # Show GUI
         self.show()
         self.setAcceptDrops(True)
@@ -297,7 +305,7 @@ class Window(QMainWindow):
                 while self.frames_processor.rendering_pause_request.value \
                         or self.frames_processor.rendering_single_frame_forward_request.value:
                     time.sleep(0.01)
-                self.btn_play_pause.setText("Play")
+                self.btn_play_pause.setText("PLAY")
 
         # Play file again and pause it
         elif self.current_file:
@@ -335,7 +343,7 @@ class Window(QMainWindow):
             if not self.frames_processor.rendering_pause_request.value \
                     and not self.frames_processor.rendering_resume_request.value:
                 # Pause rendering
-                if self.btn_play_pause.text() == "Pause":
+                if self.btn_play_pause.text() == "PAUSE":
                     self.pause_rendering()
 
                 # Resume rendering
@@ -357,7 +365,7 @@ class Window(QMainWindow):
         :return:
         """
         # Store current setting
-        paused_previously = self.btn_play_pause.text() == "Play"
+        paused_previously = self.btn_play_pause.text() == "PLAY"
 
         # Rendering is active
         if self.frames_processor.rendering_process_active.value:
@@ -456,7 +464,7 @@ class Window(QMainWindow):
         self.rb_preview_processed.setEnabled(False)
 
         # Change button text to Play
-        self.btn_play_pause.setText("Play")
+        self.btn_play_pause.setText("PLAY")
 
         # Enable controls back
         if self.render_to_file:
@@ -511,7 +519,7 @@ class Window(QMainWindow):
                           "\nFFmpeg library by www.ffmpeg.org"
                           "\nBloomEffect by Yoann Berenguer"
                           "\nIdea and help with theme switch by Keepalove (Azarell) (Sprav04ka)"
-                          .format(self.version))
+                          .format(self.version).upper())
         about_box.exec_()
 
     def open_file(self, filename=None, render_to_file=None, render_from_frame=1) -> None:
@@ -562,7 +570,7 @@ class Window(QMainWindow):
                                                      video_parameters["width"],
                                                      video_parameters["height"],
                                                      round(video_parameters["fps"], 2),
-                                                     video_parameters["bit_rate"] // 1000))
+                                                     video_parameters["bit_rate"] // 1000).upper())
 
                     render_to_frame = frames
                     if render_to_file:
@@ -573,10 +581,10 @@ class Window(QMainWindow):
                             render_to_frame = int(self.config["render_frame_to"])
 
                         # Show QProgressDialog if rendering to file
-                        self.rendering_progress = QProgressDialog("Rendering file\n{}".format(filename), "",
+                        self.rendering_progress = QProgressDialog("RENDERING FILE\n{}".format(filename).upper(), "",
                                                                   0, 100, self)
-                        self.rendering_progress.setWindowTitle("Rendering")
-                        self.rendering_progress.setCancelButtonText("Abort")
+                        self.rendering_progress.setWindowTitle("RENDERING")
+                        self.rendering_progress.setCancelButtonText("ABORT")
                         self.rendering_progress.setWindowFlag(Qt.WindowContextHelpButtonHint, False)
                         self.rendering_progress.canceled.connect(self.abort_file_rendering)
                         self.rendering_progress.show()
@@ -600,7 +608,7 @@ class Window(QMainWindow):
                                                           video_parameters, render_to_file)
 
                     # Enable controls
-                    self.btn_play_pause.setText("Pause")
+                    self.btn_play_pause.setText("PAUSE")
                     self.btn_previous.setEnabled(not render_to_file)
                     self.btn_play_pause.setEnabled(not render_to_file)
                     self.btn_next.setEnabled(not render_to_file)
@@ -699,7 +707,7 @@ class Window(QMainWindow):
 
         # Prevent dialog after aborting
         if self.frames_processor.rendering_process_active.value:
-            reply = QMessageBox.question(self, "Abort rendering", "Are you sure you want to stop rendering process?",
+            reply = QMessageBox.question(self, "ABORT RENDERING", "ARE YOU SURE YOU WANT TO STOP RENDERING PROCESS?",
                                          QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
             if reply == QMessageBox.Yes:
                 # Stop rendering =(
@@ -720,7 +728,7 @@ class Window(QMainWindow):
             self.frames_processor.rendering_pause_request.value = True
             while self.frames_processor.rendering_pause_request.value:
                 time.sleep(0.01)
-            self.btn_play_pause.setText("Play")
+            self.btn_play_pause.setText("PLAY")
 
     def resume_rendering(self) -> None:
         """
@@ -732,7 +740,7 @@ class Window(QMainWindow):
             self.frames_processor.rendering_resume_request.value = True
             while self.frames_processor.rendering_resume_request.value:
                 time.sleep(0.01)
-            self.btn_play_pause.setText("Pause")
+            self.btn_play_pause.setText("PAUSE")
 
     def stop_rendering(self) -> None:
         """
@@ -754,10 +762,10 @@ class Window(QMainWindow):
         """
         error_box = QMessageBox(self)
         error_box.setIcon(QMessageBox.Critical)
-        error_box.setWindowTitle("Error")
-        error_box.setText(error_message)
+        error_box.setWindowTitle("ERROR")
+        error_box.setText(error_message.upper())
         if additional_text:
-            error_box.setInformativeText(str(additional_text))
+            error_box.setInformativeText(str(additional_text).upper())
         error_box.exec_()
 
     def dragEnterEvent(self, event):
@@ -823,7 +831,7 @@ class Window(QMainWindow):
         :return:
         """
         if self.current_file:
-            reply = QMessageBox.question(self, "Quit", "Are you sure you want to quit?",
+            reply = QMessageBox.question(self, "QUIT", "ARE YOU SURE YOU WANT TO QUIT?",
                                          QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
             if reply == QMessageBox.Yes:
                 # Stop current rendering

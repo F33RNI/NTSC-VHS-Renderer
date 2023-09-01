@@ -431,7 +431,8 @@ class FramesProcessor:
                                                                                            time_total,
                                                                                            round(percentage_absolute,
                                                                                                  1),
-                                                                                           round(fps_filtered, 2))
+                                                                                           round(fps_filtered, 2))\
+                            .upper()
                         self.rendering_progress.value = int(percentage_relative)
                         self.current_frame_absolute.value = frame_from + current_frame - 1
 
